@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/db'
 
-type RouteParams = { params: Promise<{ id: string; reminderId: string }> }
+export const dynamic = 'force-dynamic'
+
+type RouteParams = { params: Promise<{ id: string; reminderId: string }> | { id: string; reminderId: string } }
 
 export async function PUT(request: NextRequest, { params }: RouteParams) {
   try {

@@ -2,8 +2,10 @@ import { notFound } from 'next/navigation'
 import prisma from '@/lib/db'
 import { format } from 'date-fns'
 
+export const dynamic = 'force-dynamic'
+
 interface PageProps {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }> | { slug: string }
 }
 
 function formatAmount(amount: number, currency: string): string {

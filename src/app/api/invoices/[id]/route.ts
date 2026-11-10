@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/db'
 
-type RouteParams = { params: Promise<{ id: string }> }
+export const dynamic = 'force-dynamic'
+
+type RouteParams = { params: Promise<{ id: string }> | { id: string } }
 
 export async function GET(request: NextRequest, { params }: RouteParams) {
   try {
