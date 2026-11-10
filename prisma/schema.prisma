@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Invoice {
+  id          String   @id @default(cuid())
+  clientName  String
+  clientEmail String?
+  title       String
+  currency    String   @default("INR")
+  status      String   @default("draft") // draft, sent, viewed, overdue, paid
+  dueDate     DateTime
+  publicSlug  String   @unique
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  lineItems  LineItem[]
+  reminders  Reminder[]
+}
+
+model LineItem {
+  id          String @id @default(cuid())
+  invoiceId   String
+  description String
+  quantity    Float  @default(1)
+  unitPrice   Float
+  amount      Float
+
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+}
+
+model Reminder {
+  id            String    @id @default(cuid())
+  invoiceId     String
+  subject       String
+  body          String
+  scheduledDate DateTime
+  status        String    @default("pending") // pending, sent, skipped, cancelled
+  tone          String // friendly, firm, final
+  sendOrder     Int
+  sentAt        DateTime?
+
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+}
