@@ -1,7 +1,6 @@
 # ChaseFlow ⚡
 > **Automated B2B Invoice Chasing & Accounts Receivable platform that runs on Claude — with ZERO AI inside.**
 
-Built for the **Volopay Product & Tech Assignment**.
 
 ---
 
@@ -130,53 +129,6 @@ You can deploy ChaseFlow to **Vercel** or **Render** in 2 minutes:
    - `DATABASE_URL` = `file:./dev.db` (or link to a serverless Turso/Supabase Postgres DB).
 4. Click **Deploy**.
 
----
 
-## 📹 5-Minute Pitch Video Script (Rubric-Matched)
 
-Use this exact timing and script breakdown for your 5-minute founder pitch video:
 
-### 1. Who You Are (0:00 - 0:45)
-> *"Hi Sandeep and Rosh. I'm [Your Name], founder of ChaseFlow. I'm a full-stack product engineer passionate about B2B financial workflows and cash flow automation. I love building high-leverage products that eliminate operational friction for businesses."*
-
-### 2. Your Best Work (0:45 - 1:15)
-> *"In my recent work, I built [Mention a standout project / scalable web app / high-volume system]. For example, I shipped [Project Name], handling [X metric / users / transactions] with zero downtime. I focus on high-velocity execution, clean architecture, and products that deliver immediate ROI."*
-
-### 3. Why This Business Will Win (1:15 - 2:15)
-> *"Unpaid invoices are the number one cash-flow killer for SMBs, consultants, and agencies. In the UK alone, late payments cause 50,000 small businesses to fail every year.*
-> 
-> *Traditional accounting software like QuickBooks or FreshBooks has automated reminders, but they are rigid, robotic templates that sound like a collection agency. Writing bespoke, diplomatic emails manually takes hours of mental overhead.*
-> 
-> *Claude is the greatest copywriter in the world. It can write the perfect diplomatic nudge tailored to any client relationship. But Claude has three fatal flaws: it can't remember to follow up in 14 days, it can't host a live payment link, and it has no persistent state.*
-> 
-> *ChaseFlow bridges this gap with zero AI inside our backend. The customer pays Claude. Claude writes the sequence. ChaseFlow hosts the invoice, lets the human review the wording, and guarantees the reminders go out on schedule until paid."*
-
-### 4. The Live Demo (2:15 - 4:15)
-1. **Show Claude Desktop**: Type:
-   > *"Create an invoice for Acme Corp, ₹85,000 for Q3 Growth Marketing Sprint, due in 7 days, and chase them politely."*
-2. **Watch Claude invoke MCP**: Show Claude calling `create_invoice` with line items and 3 escalating reminders.
-3. **Switch to ChaseFlow Dashboard**: Open `http://localhost:3000/dashboard`.
-   - Show the invoice instantly appearing under "Sent".
-   - Click into the invoice.
-   - **Show the Human-in-the-Loop requirement**: Edit one line item amount, edit the tone of Reminder #2, and change the scheduled follow-up date.
-   - Click "Save Changes".
-4. **Open Public Invoice Link**: Show `/invoice/[slug]` — clean, distraction-free view with breakdown and "Mark as Paid".
-5. **Mark Paid**: Click "Mark Paid" in the app $\rightarrow$ show pending reminders instantly transitioning to "Cancelled".
-
-### 5. The Money & Unit Economics (4:15 - 5:00)
-> *"**Unit Economics**: Our COGS per customer is practically zero. Because Claude provides the intelligence on the customer's dime, we pay $0 in LLM API bills. Our server and database costs on Vercel/Fly are under $0.03 per customer per month. We run at 99%+ gross margins.*
->
-> ***Pricing**: We charge a flat $29/month for freelancers and $79/month for agencies with team accounts. One recovered ₹85,000 invoice pays for 2 years of the subscription.*
-> 
-> ***First 100 Customers**: We will acquire our first 100 customers by launching directly into Claude and Cursor community directories, Indie Hackers, and B2B agency Slack communities with a 14-day free trial.*
-> 
-> ***Year 1 & Year 3 Vision**:*
-> - *Year 1: 500 paying agencies = $174,000 ARR.*
-> - *Year 3: $1.8M ARR by adding embedded payment links (Stripe/UPI) and taking a 0.5% convenience fee on accelerated settlements."*
-
----
-
-## 📦 What to Send to Volopay
-1. **Your 5-minute video link** (Loom, YouTube Unlisted, or Drive).
-2. **Your live app link** (Vercel URL, e.g. `https://chaseflow.vercel.app/dashboard`).
-3. **Your MCP link & setup steps** (Point to this repository's `mcp-server/index.ts` and `claude_desktop_config.example.json`).
